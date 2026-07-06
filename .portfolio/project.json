@@ -1,0 +1,43 @@
+{
+  "title": "Proxmox Zero Trust Lab",
+  "slug": "proxmox-zero-trust-lab",
+  "type": "lab",
+  "status": "W trakcie",
+  "featured": true,
+  "summary": "Laboratorium infrastrukturalne pokazujące bezpieczne publikowanie usług z lokalnego środowiska Proxmox przez Cloudflare Tunnel i podejście Zero Trust.",
+  "category": "Infrastructure / Zero Trust / Homelab",
+  "technologies": [
+    "Proxmox VE",
+    "Ubuntu Server",
+    "Docker",
+    "Docker Compose",
+    "Cloudflare Tunnel",
+    "Cloudflare Zero Trust",
+    "Nginx Proxy Manager",
+    "Linux"
+  ],
+  "repository": "GrzegorzBanaszak/proxmox-zero-trust-lab",
+  "links": {
+    "github": "https://github.com/GrzegorzBanaszak/proxmox-zero-trust-lab",
+    "demo": "",
+    "docs": ""
+  },
+  "problem": "Potrzebowałem sposobu na bezpieczne wystawianie wybranych usług z lokalnego homelabu bez otwierania portów na routerze i bez publicznego adresu IP.",
+  "decision": "Zdecydowałem się wykorzystać Cloudflare Tunnel oraz podejście Zero Trust, aby oddzielić publiczny dostęp do usług od bezpośredniej ekspozycji infrastruktury lokalnej.",
+  "implementation": [
+    "Przygotowanie maszyny wirtualnej w Proxmox VE.",
+    "Instalacja i konfiguracja Ubuntu Server.",
+    "Uruchomienie usług przez Docker Compose.",
+    "Konfiguracja Cloudflare Tunnel.",
+    "Przygotowanie reverse proxy dla wybranych usług.",
+    "Opisanie zasad bezpieczeństwa i separacji usług."
+  ],
+  "result": "Powstało środowisko laboratoryjne pokazujące, jak publikować wybrane usługi z homelabu w sposób bezpieczniejszy niż klasyczne przekierowanie portów.",
+  "lessonsLearned": [
+    "Konfiguracja Cloudflare Tunnel.",
+    "Podstawy podejścia Zero Trust.",
+    "Bezpieczne wystawianie usług self-hosted.",
+    "Organizacja usług w Docker Compose.",
+    "Dokumentowanie infrastruktury laboratoryjnej."
+  ]
+}
