@@ -57,83 +57,65 @@ Wdrożyłem aplikację _Homer_, która domyślnie jest całkowicie otwarta. Dzi�
 
 Poniżej przedstawiam kluczowe etapy zrealizowanego wdrożenia. Ze względu na obszerną dokumentację zdjęciową, zrzuty ekranu zostały pogrupowane i ukryte w rozwijanych sekcjach – kliknij w wybrany etap, aby zobaczyć szczegóły.
 
-<details>
-<summary><b>1. Konfiguracja Cloudflare Tunnels i testowanie łączności</b></summary>
+#### 1. Konfiguracja Cloudflare Tunnels i testowanie łączności
 
 **Krok 1:** Utworzenie nowego tunelu w panelu Cloudflare Zero Trust:
-![Utworzenie tunelu Cloudflare](screenshots/img-1.png)
+![Utworzenie tunelu Cloudflare](images/img-1.png)
 
 **Krok 2:** Weryfikacja statusu i szczegółów utworzonego tunelu:
-![Status tunelu Cloudflare](/screenshots/img-2.png)
+![Status tunelu Cloudflare](/images/img-2.png)
 
 **Krok 3:** Uruchomienie pierwszych kontenerów (agent `cloudflared` oraz testowa aplikacja `whoami`):
-![Kontenery cloudflared i whoami](screenshots/img-3.png)
+![Kontenery cloudflared i whoami](images/img-3.png)
 
 **Krok 4:** Pomyślny test połączenia z kontenerem `whoami` przez wystawiony tunel:
-![Test połączenia z kontenerem Whoami](screenshots/img-4.png)
+![Test połączenia z kontenerem Whoami](images/img-4.png)
 
-</details>
-
-<details>
-<summary><b>2. Uruchomienie i konfiguracja Nginx Proxy Manager (NPM)</b></summary>
+#### 2. Uruchomienie i konfiguracja Nginx Proxy Manager (NPM)
 
 **Krok 1:** Utworzenie i uruchomienie instancji Nginx Proxy Managera:
-![Utworzenie Nginx Proxy Manager](screenshots/img-5.png)
+![Utworzenie Nginx Proxy Manager](images/img-5.png)
 
 **Krok 2:** Konfiguracja proxy hostów i reguł przekierowań w panelu NPM:
-![Konfiguracja reguł w Nginx Proxy Manager](screenshots/img-6.png)
+![Konfiguracja reguł w Nginx Proxy Manager](images/img-6.png)
 
-</details>
-
-<details>
-<summary><b>3. Wdrożenie Identity Provider (Authentik)</b></summary>
+#### 3. Wdrożenie Identity Provider (Authentik)
 
 **Krok 1:** Konfiguracja rekordów DNS dla usług Authentik w panelu Cloudflare (część 1):
-![Konfiguracja DNS dla Authentik - krok 1](screenshots/img-7.png)
+![Konfiguracja DNS dla Authentik - krok 1](images/img-7.png)
 
 **Krok 2:** Konfiguracja rekordów DNS dla usług Authentik (część 2):
-![Konfiguracja DNS dla Authentik - krok 2](screenshots/img-8.png)
+![Konfiguracja DNS dla Authentik - krok 2](images/img-8.png)
 
 **Krok 3:** Pierwsze logowanie do panelu administracyjnego Authentik:
-![Logowanie do panelu Authentik](screenshots/img-9.png)
+![Logowanie do panelu Authentik](images/img-9.png)
 
 **Krok 4:** Konfiguracja początkowa dostawcy tożsamości:
-![Konfiguracja początkowa platformy Authentik](screenshots/img-10.png)
+![Konfiguracja początkowa platformy Authentik](images/img-10.png)
 
-</details>
-
-<details>
-<summary><b>4. Wdrożenie i konfiguracja weryfikacji dwuetapowej (MFA/TOTP)</b></summary>
+#### 4. Wdrożenie i konfiguracja weryfikacji dwuetapowej (MFA/TOTP)
 
 **Krok 1:** Konfiguracja przepływu (flow) dla uwierzytelniania wieloskładnikowego:
-![Konfiguracja przepływu MFA w Authentik](screenshots/img-11.png)
+![Konfiguracja przepływu MFA w Authentik](images/img-11.png)
 
 **Krok 2:** Przypisanie i weryfikacja aplikacji autentykującej (TOTP):
-![Weryfikacja aplikacji TOTP](screenshots/img-12.png)
+![Weryfikacja aplikacji TOTP](images/img-12.png)
 
 **Krok 3:** Udane logowanie przy użyciu drugiego składnika:
-![Sukces logowania MFA za pomocą tokenu](screenshots/img-13.png)
+![Sukces logowania MFA za pomocą tokenu](images/img-13.png)
 
-</details>
-
-<details>
-<summary><b>5. Ochrona aplikacji docelowej (Home Dashboard) za pomocą SSO</b></summary>
+#### 5. Ochrona aplikacji docelowej (Home Dashboard) za pomocą SSO
 
 **Krok 1:** Utworzenie nowej aplikacji (Homer) i dostawcy uwierzytelniania (Provider) w Authentik:
-![Utworzenie dostawcy dla Home Dashboard](screenshots/img-14.png)
+![Utworzenie dostawcy dla Home Dashboard](images/img-14.png)
 
 **Krok 2:** Powiązanie utworzonej aplikacji ze strumieniem logowania (Outpost):
-![Powiązanie aplikacji ze strumieniem logowania](screenshots/img-15.png)
+![Powiązanie aplikacji ze strumieniem logowania](images/img-15.png)
 
 **Krok 3:** Dostęp do panelu Homer zabezpieczonego warstwą autoryzacji SSO:
-![Widok zabezpieczonego panelu Homer](screenshots/img-16.png)
+![Widok zabezpieczonego panelu Homer](images/img-16.png)
 
-</details>
-
-<details>
-<summary><b>6. Podsumowanie środowiska Docker</b></summary>
+#### 6. Podsumowanie środowiska Docker
 
 Widok wszystkich uruchomionych i współpracujących ze sobą kontenerów Docker w ramach wdrożonej architektury Zero Trust:
-![Lista uruchomionych kontenerów Docker](screenshots/img-17.png)
-
-</details>
+![Lista uruchomionych kontenerów Docker](images/img-17.png)
